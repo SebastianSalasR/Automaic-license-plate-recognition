@@ -19,7 +19,6 @@ dict_int_to_char = {'0': 'O',
 					'6': 'G',
 					'5': 'S'}
 
-
 def write_csv(results, output_path):
 	"""
 	Write the results to a CSV file.
@@ -121,7 +120,9 @@ def read_license_plate(license_plate_crop):
 		text = text.upper().replace(' ', '')
 
 		if license_complies_format(text):
-			return format_license(text), score
+			return text, score
+			
+   			#return format_license(text), score
 	
 	return None, None
 

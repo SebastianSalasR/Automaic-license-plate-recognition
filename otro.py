@@ -14,7 +14,7 @@ coco_model = YOLO('yolov8n.pt')
 license_plate_detector = YOLO('./license_plate_detector.pt')
 
 # load video
-cap = cv2.VideoCapture('./sample.mp4')
+cap = cv2.VideoCapture('./videonico.mp4')
 
 vehicles = [2, 3, 5, 7]
 
