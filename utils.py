@@ -1,5 +1,6 @@
 import string
 import easyocr
+import psycopg2
 
 # Initialize the OCR reader
 reader = easyocr.Reader(['en'], gpu = True)
@@ -153,3 +154,28 @@ def get_car(license_plate, vehicle_track_ids):
 		return vehicle_track_ids[car_indx]
 	
 	return -1, -1, -1, -1, -1 
+
+def connectDB():
+	""" Hace la conexion con la BD """
+	conexion = psycopg2.connect(
+	host="localhost",
+	database="nombre_base_datos", #Cambiar dependiendo de la BD
+	user="root",
+	password="contraseña"
+)
+
+def sendQuery(valor_bool, conexion):
+		""" Envia una consulta a la BD """
+		cursor = conexion.cursor()
+		
+		# Crear la consulta
+		if valor_bool:
+			query = "SELECT * FROM tabla WHERE condicion = 'true';" #Cambiar dependiendo de lo que se quiera hacer
+		else:
+			query = "SELECT * FROM tabla WHERE condicion = 'false';"
+		
+		# Ejecutar la consulta
+		cursor.execute(query)
+		
+		# Cerrar el cursor y la conexión
+		cursor.close()
