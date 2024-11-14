@@ -170,9 +170,9 @@ def sendQuery(valor_bool, conexion):
 		
 		# Crear la consulta
 		if valor_bool:
-			query = "SELECT * FROM tabla WHERE condicion = 'true';" #Cambiar dependiendo de lo que se quiera hacer
+			query = "UPDATE escaneo SET resultado = 1;" #Cambiar dependiendo de lo que se quiera hacer lo deje segun el diagrama
 		else:
-			query = "SELECT * FROM tabla WHERE condicion = 'false';"
+			query = "UPDATE escaneo SET resultado = 0;"
 		
 		# Ejecutar la consulta
 		cursor.execute(query)
