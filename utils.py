@@ -179,3 +179,20 @@ def sendQuery(valor_bool, conexion):
 		
 		# Cerrar el cursor y la conexión
 		cursor.close()
+
+def isInMap(license_plate, license_map, conexion=None):
+    if license_plate in license_map:
+        return True
+    else:
+        # ejecuta una consulta a la base de datos para registrar esa patente (opcional igual XD)
+		# sino se deja el false nomas
+        cursor = conexion.cursor()
+        query = f"INSERT INTO escaneo (patente, resultado) VALUES ('{license_plate}', 0);" 
+        cursor.execute(query)
+        conexion.commit()
+        cursor.close()
+        return False
+
+license_list = ["ABC1234", "XYZ5678", "LMN9102"]
+print(isInMap("ABC1234", license_list)) #deberia dar true
+print(isInMap("DEF4321", license_list)) #deberia dar false
