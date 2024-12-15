@@ -11,8 +11,8 @@ license_plate_detector = YOLO("./license_plate_detector.pt")
 results = {}
 
 # Load the video
-cap = cv2.VideoCapture("./videonico.mp4")
-#cap = cv2.VideoCapture("./sample.mp4")
+#cap = cv2.VideoCapture("./videonico.mp4")
+cap = cv2.VideoCapture("./sample.mp4")
 #cap = cv2.VideoCapture("./videonegro.mp4")
 
 # Read frames
