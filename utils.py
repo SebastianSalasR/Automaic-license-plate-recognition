@@ -195,4 +195,3 @@ def isInMap(license_plate, license_map, conexion=None):
 
 license_list = ["ABC1234", "XYZ5678", "LMN9102"]
 print(isInMap("ABC1234", license_list)) #deberia dar true
-print(isInMap("DEF4321", license_list)) #deberia dar false
